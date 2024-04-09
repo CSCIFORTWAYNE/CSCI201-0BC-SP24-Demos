@@ -19,7 +19,10 @@ public:
     void setPrice(double);
     void setDescription(std::string);
     virtual std::string tostring() const;
-    virtual product *clone() = 0;
+    virtual product *clone() 
+    {
+        return new product(*this);
+    }
     virtual ~product();
 
 protected:
