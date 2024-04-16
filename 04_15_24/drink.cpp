@@ -199,9 +199,9 @@ std::string drink::tostring() const
     return out.str();
 }
 
-drink *drink::clone()
+std::unique_ptr<drink> drink::clone()
 {
-    return new drink(*this);
+    return std::unique_ptr<drink>(new drink(*this));
 }
 drink::~drink()
 {

@@ -6,6 +6,7 @@
 #include <algorithm>
 #include <map>
 #include <iostream>
+#include <memory>
 
 enum baseType
 {
@@ -44,7 +45,7 @@ public:
     void setDairy(std::string);
     void setFlavor(std::string);
     std::string tostring() const;
-    drink *clone();
+    std::unique_ptr<drink> clone();
     ~drink();
     static std::map<baseType, std::string> baseToStr;
     static std::map<std::string, baseType> strToBase;

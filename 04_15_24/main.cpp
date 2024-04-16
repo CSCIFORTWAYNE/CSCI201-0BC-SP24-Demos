@@ -53,6 +53,10 @@ int main()
     drinks.push_back(d);
     drinks.push_back(e);
     drinks.push_back(createDrink());
+
+    std::unique_ptr<drink> ePtr = e.clone();
+    std::cout << ePtr->tostring() << std::endl;
+
     return 0;
 }
 
