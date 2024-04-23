@@ -2,9 +2,13 @@
 #include <string>
 #include <exception>
 #include <limits>
+#include "clock.h"
+#include "clockExcept.h"
 
 int getPositiveInt(std::string prompt);
 void resetStream();
+
+// lecture activity create a custom exception class for invalid_dairy strings. Modify the setDairy in the drink class so it throws your new exception class when the diary string doesn't match one we have a price for.
 
 int main()
 {
@@ -30,6 +34,20 @@ int main()
         }
     }
 
+    try
+    {
+        clockType c(12, x, x);
+    }
+
+    catch (invalid_hour e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    catch (std::invalid_argument e)
+    {
+        std::cerr << "invalid argument caught" << std::endl;
+        std::cerr << e.what() << '\n';
+    }
     return 0;
 }
 

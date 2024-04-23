@@ -10,9 +10,7 @@ void clockType::setHour(int h)
         }
         else
         {
-            std::cout << "The hour is invalid. Valid values are between 0 and 23." << std::endl;
-            std::cout << "The hour will be set to 0." << std::endl;
-            hour = 0;
+            throw invalid_hour("The hour is invalid. Valid values are between 0 and 23.");
         }
     }
     else
@@ -23,18 +21,27 @@ void clockType::setHour(int h)
         }
         else
         {
-            hour = 1;
+            throw invalid_hour("The hour is invalid. Valid values are between 1 and 12.");
         }
     }
 }
 
 clockType::clockType(int h, int m, int s, hourType t, amPmType tod)
 {
-    type = t;
-    timeOfDay = tod;
-    setHour(h);
-    setMinute(m);
-    setSecond(s);
+    try
+    {
+        type = t;
+        timeOfDay = tod;
+        setHour(h);
+        setMinute(m);
+        setSecond(s);
+    }
+    catch (std::invalid_argument e)
+    {
+        std::string msg = e.what();
+        msg += "\n clockType constructor";
+        throw std::invalid_argument(msg);
+    }
 }
 
 void clockType::setMinute(int m)
@@ -45,9 +52,7 @@ void clockType::setMinute(int m)
     }
     else
     {
-        std::cout << "The minute is invalid. Valid values are between 0 and 59." << std::endl;
-        std::cout << "The minute will be set to 0." << std::endl;
-        minute = 0;
+        throw std::invalid_argument("The minute is invalid. Valid values are between 0 and 59.");
     }
 }
 
@@ -59,9 +64,7 @@ void clockType::setSecond(int s)
     }
     else
     {
-        std::cout << "The second is invalid. Valid values are between 0 and 59." << std::endl;
-        std::cout << "The second will be set to 0." << std::endl;
-        second = 0;
+        throw std::invalid_argument("The second is invalid. Valid values are between 0 and 59.");
     }
 }
 

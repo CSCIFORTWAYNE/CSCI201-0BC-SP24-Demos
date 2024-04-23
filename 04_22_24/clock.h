@@ -1,10 +1,11 @@
 #ifndef CLOCK_H
 #define CLOCK_H
-#include <iostream>
+
 #include <string>
 #include <sstream>
 #include <iomanip>
 #include <algorithm>
+#include "clockExcept.h"
 
 enum hourType
 {
