@@ -4,8 +4,10 @@ invalid_hour::invalid_hour(std::string msg) : invalid_argument(msg)
 {
 }
 
-const char *invalid_hour::what() const noexcept
+invalid_min::invalid_min(std::string msg) : invalid_argument(msg)
 {
+}
 
-    return invalid_argument::what();
+invalid_sec::invalid_sec(std::string msg) : invalid_argument(msg)
+{
 }

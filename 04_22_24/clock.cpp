@@ -36,11 +36,23 @@ clockType::clockType(int h, int m, int s, hourType t, amPmType tod)
         setMinute(m);
         setSecond(s);
     }
-    catch (std::invalid_argument e)
+    catch (invalid_hour e)
     {
         std::string msg = e.what();
-        msg += "\n clockType constructor";
-        throw std::invalid_argument(msg);
+        msg += "\nclockType constructor:35";
+        throw invalid_hour(msg);
+    }
+    catch (invalid_min e)
+    {
+        std::string msg = e.what();
+        msg += "\nclockType constructor:36";
+        throw invalid_min(msg);
+    }
+    catch (invalid_sec e)
+    {
+        std::string msg = e.what();
+        msg += "\nclockType constructor:37";
+        throw invalid_sec(msg);
     }
 }
 
@@ -52,7 +64,7 @@ void clockType::setMinute(int m)
     }
     else
     {
-        throw std::invalid_argument("The minute is invalid. Valid values are between 0 and 59.");
+        throw invalid_min("The minute is invalid. Valid values are between 0 and 59.");
     }
 }
 
@@ -64,7 +76,7 @@ void clockType::setSecond(int s)
     }
     else
     {
-        throw std::invalid_argument("The second is invalid. Valid values are between 0 and 59.");
+        throw invalid_sec("The second is invalid. Valid values are between 0 and 59.");
     }
 }
 

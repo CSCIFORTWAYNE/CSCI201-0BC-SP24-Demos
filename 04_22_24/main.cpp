@@ -12,7 +12,60 @@ void resetStream();
 
 int main()
 {
-    int x;
+    bool validHours = false;
+    bool validMin = false;
+    bool validSec = false;
+    int hour, min, sec;
+    clockType *myClock;
+    while (!validHours || !validMin || !validSec)
+    {
+        try
+        {
+            if (!validHours)
+            {
+                hour = getPositiveInt("Enter the hours for the clock: ");
+                validHours = true;
+            }
+            if (!validMin)
+            {
+                min = getPositiveInt("Enter the minutes for the clock: ");
+                validMin = true;
+            }
+            if (!validSec)
+            {
+                sec = getPositiveInt("Enter the seconds for the clock: ");
+                validSec = true;
+            }
+            myClock = new clockType(hour, min, sec);
+                }
+        catch (std::ios_base::failure e)
+        {
+            std::cout << e.what() << std::endl;
+            resetStream();
+        }
+        catch (std::domain_error e)
+        {
+            std::cout << e.what() << std::endl;
+        }
+        catch (invalid_hour e)
+        {
+            std::cout << e.what() << std::endl;
+            validHours = false;
+        }
+        catch (invalid_min e)
+        {
+            std::cout << e.what() << std::endl;
+            validMin = false;
+        }
+        catch (invalid_sec e)
+        {
+            std::cout << e.what() << std::endl;
+            validSec = false;
+        }
+    }
+
+    std::cout << *myClock << std::endl;
+    /* int x;
     // std::cin.exceptions(std::istream::badbit | std::istream::failbit);
     bool isValid = false;
     while (!isValid)
@@ -47,7 +100,7 @@ int main()
     {
         std::cerr << "invalid argument caught" << std::endl;
         std::cerr << e.what() << '\n';
-    }
+    } */
     return 0;
 }
 
