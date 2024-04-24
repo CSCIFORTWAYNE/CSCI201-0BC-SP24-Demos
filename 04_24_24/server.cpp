@@ -18,6 +18,7 @@ int main(int argc, char *argv[])
                 val = htonl(val);
                 sock->send(&val, sizeof(val));
             }
+            delete sock;
         }
     }
     catch (SocketException e)
