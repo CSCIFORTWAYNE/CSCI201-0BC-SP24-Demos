@@ -10,7 +10,7 @@ int main(int argc, char *argv[])
         for (;;)
         {
             TCPSocket *sock = servSock.accept();
-            u_int32_t val;
+            uint32_t val;
             if (sock->recvFully(&val, sizeof(val)) == sizeof(val))
             {
                 val = ntohl(val);
