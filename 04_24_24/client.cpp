@@ -34,6 +34,7 @@ int main(int argc, char *argv[])
             if (sock.recvFully(buffer, val) == val)
             {
                 buffer[val] = '\0';
+                std::cout << "\033[1m\033[38;5;17m\033[48;5;15m";
                 std::cout << "Server Response: " << buffer << std::endl;
             }
             delete[] buffer;

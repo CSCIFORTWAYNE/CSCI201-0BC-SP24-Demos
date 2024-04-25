@@ -1,6 +1,11 @@
 #include "PracticalSocket.h"
 #include <iostream>
 #include <string>
+#include <map>
+#include <algorithm>
+
+std::string processString(std::string);
+// add two strings with responses to the static map.
 
 int main(int argc, char *argv[])
 {
@@ -22,10 +27,11 @@ int main(int argc, char *argv[])
                 {
                     buffer[val] = '\0';
                     std::string input(buffer);
+                    std::string response = processString(input);
                     std::cout << "received: " << input << std::endl;
-                    val = htonl(val);
+                    val = htonl(response.length());
                     sock->send(&val, sizeof(val));
-                    sock->send(buffer, val);
+                    sock->send(response.c_str(), response.length());
                 }
                 delete[] buffer;
             }
@@ -38,4 +44,23 @@ int main(int argc, char *argv[])
     }
 
     return 0;
+}
+
+std::string processString(std::string inStr)
+{
+    static std::map<std::string, std::string> strMap = {{"hello world", "Goodbye"},
+                                                        {"how are you?", "OK"},
+                                                        {"is the weather nice today?", "No"},
+                                                        {"goodbye", "Have a nice day!"}};
+    std::transform(inStr.begin(), inStr.end(), inStr.begin(), ::tolower);
+    if (strMap.count(inStr))
+    {
+        return strMap[inStr];
+    }
+    else
+    {
+        strMap[inStr] = "I don't know what to say.";
+        return inStr;
+    }
+    return std::string();
 }
