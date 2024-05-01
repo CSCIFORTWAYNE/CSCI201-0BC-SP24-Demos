@@ -1,0 +1,11 @@
+uses
+	CtrlLib;
+
+file
+	drinks.h,
+	drinks.cpp,
+	main.cpp;
+
+mainconfig
+	"" = "GUI";
+
