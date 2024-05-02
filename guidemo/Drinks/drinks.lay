@@ -1,0 +1,19 @@
+LAYOUT(MainAppWindow, 712, 412)
+END_LAYOUT
+
+LAYOUT(Drinks, 684, 412)
+	ITEM(Upp::Label, baseLbl, SetLabel(t_("Drink Base:")).LeftPosZ(12, 104).VCenterPosZ(20, -168))
+	ITEM(Upp::Switch, base, SetLabel(t_("Coffee\nTea\nCream")).LeftPosZ(148, 60).TopPosZ(12, 52))
+	ITEM(Upp::Label, sizeLbl, SetLabel(t_("Drink Size:")).LeftPosZ(12, 104).VCenterPosZ(20, -112))
+	ITEM(Upp::Switch, size, SetLabel(t_("Small\nMedium\nLarge")).LeftPosZ(148, 60).TopPosZ(68, 52))
+	ITEM(Upp::Label, tempLbl, SetLabel(t_("Drink Temperature:")).LeftPosZ(12, 104).VCenterPosZ(20, -56))
+	ITEM(Upp::Switch, temp, SetLabel(t_("Hot\nIced\nBlended")).LeftPosZ(148, 60).TopPosZ(124, 52))
+	ITEM(Upp::Label, dairyLbl, SetLabel(t_("Dairy Choice:")).LeftPosZ(12, 104).TopPosZ(184, 20))
+	ITEM(Upp::DropList, dairy, LeftPosZ(148, 200).TopPosZ(184, 20))
+	ITEM(Upp::Label, flavorLbl, SetLabel(t_("Flavors:")).LeftPosZ(12, 104).TopPosZ(216, 20))
+	ITEM(Upp::ParentCtrl, options, SetFrame(Upp::FieldFrame()).LeftPosZ(148, 200).TopPosZ(216, 120))
+	ITEM(Upp::Label, priceLbl, SetLabel(t_("Price:")).LeftPosZ(12, 104).TopPosZ(348, 20))
+	ITEM(Upp::EditString, price, SetEditable(false).WantFocus(false).LeftPosZ(148, 200).TopPosZ(348, 20))
+	ITEM(Upp::Button, createDrink, SetLabel(t_("Create Drink")).LeftPosZ(12, 336).TopPosZ(380, 20))
+END_LAYOUT
+

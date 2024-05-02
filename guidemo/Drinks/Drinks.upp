@@ -1,9 +1,11 @@
 uses
-	CtrlLib;
+	CtrlLib,
+	AutoScroller;
 
 file
 	drinks.h,
 	drinks.cpp,
+	drinks.lay,
 	main.cpp;
 
 mainconfig
