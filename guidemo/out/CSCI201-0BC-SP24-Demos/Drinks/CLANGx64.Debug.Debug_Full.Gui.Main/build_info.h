@@ -2,10 +2,10 @@
 #define bmMONTH  5
 #define bmDAY    1
 #define bmHOUR   21
-#define bmMINUTE 23
-#define bmSECOND 13
-#define bmTIME   Time(2024, 5, 1, 21, 23, 13)
+#define bmMINUTE 45
+#define bmSECOND 55
+#define bmTIME   Time(2024, 5, 1, 21, 45, 55)
 #define bmMACHINE "ANGIE-DESKTOP"
 #define bmUSER    "FORTI"
-#define bmGIT_REVCOUNT "36"
-#define bmGIT_HASH "81b4e8ee0a2377a9da6e5778d869dd0e3c498b7f"
+#define bmGIT_REVCOUNT "37"
+#define bmGIT_HASH "f1d64e2fed88cc58de24e13783779f0218fb7b1d"

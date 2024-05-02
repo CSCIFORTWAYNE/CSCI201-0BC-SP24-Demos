@@ -19,6 +19,7 @@ class MyAppWindow : public WithMainAppWindow<TopWindow> //with layout name from 
 		//~MyAppWindow();
 		AutoScroller scroller;
 		WithDrinks<ParentCtrl> scroller_view;
+		//WithFlavors<ParentCtrl> flav_view;
 		Option flavor[10];
 };
 
@@ -37,6 +38,8 @@ MyAppWindow::MyAppWindow()
 	{
 		scroller_view.dairy.Add(dairyStr[i]);
 	}
+	//scroller_view.Add(flav_view.SizePos());
+	
 	for(int i = 0; i < 10; i++)
 	{
 		flavor[i].SetLabel(flavStr[i].c_str());
